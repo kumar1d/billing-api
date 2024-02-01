@@ -15,7 +15,7 @@ import lombok.*;
 //@GenerateCrud(basePackage = "com.logistiex.billing")
 public class transaction extends AuditableBaseEntity<String> {
 
-    // @ReferenceKey(domainClass = BusinessOrg.class,targetAttribute = "orgCode")
+   
 
     @NotBlank
     private String orgCode;

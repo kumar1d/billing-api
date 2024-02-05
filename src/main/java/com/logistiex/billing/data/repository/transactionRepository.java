@@ -1,18 +1,10 @@
-/*
- * Copyright (c) 2023. Noetic Logistiex Pvt Ltd - All Rights Reserved
- *
- * Unauthorized copying or redistribution of this file in source and binary forms via any medium
- * is strictly prohibited.
- *
- * Proprietary and confidential
- */
-
 package com.logistiex.billing.data.repository;
-
 
 import com.logistiex.common.data.mongo.repository.BaseMongoRepository;
 import com.logistiex.billing.data.model.transaction;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
  * Spring Data MongoDB repository for the transaction entity.
@@ -20,4 +12,6 @@ import org.springframework.stereotype.Repository;
 @SuppressWarnings("unused")
 @Repository
 public interface transactionRepository extends BaseMongoRepository<transaction, String> {
+
+    List<transaction> findByOrgCodeAndTransactionTimeBetween(String orgCode, long startTime, long endTime);
 }

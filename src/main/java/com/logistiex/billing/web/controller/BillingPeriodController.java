@@ -10,9 +10,8 @@
 package com.logistiex.billing.web.controller;
 
 import com.logistiex.billing.service.BillingPeriodService;
-import com.logistiex.billing.service.dto.transactionDTO;
+import com.logistiex.billing.service.dto.TransactionDTO;
 import com.logistiex.common.data.repository.BaseRepository;
-import com.logistiex.common.service.BaseCrudService;
 import com.logistiex.common.web.mvc.controller.BaseCrudController;
 import com.logistiex.billing.data.model.BillingPeriod;
 import com.logistiex.billing.service.dto.BillingPeriodDTO;
@@ -38,7 +37,7 @@ public class BillingPeriodController extends BaseCrudController<String, BillingP
 
     // New API endpoint to get transactions within a timeframe for a specific organization
     @GetMapping("/transactions")
-    public List<transactionDTO> getTransactionsByOrgCodeAndTimeframe(
+    public List<TransactionDTO> getTransactionsByOrgCodeAndTimeframe(
             @RequestParam String orgCode,
             @RequestParam long startDate, // Accept epoch format for startDate
             @RequestParam long endDate    // Accept epoch format for endDate

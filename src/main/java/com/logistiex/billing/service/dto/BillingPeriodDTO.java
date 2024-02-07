@@ -11,14 +11,12 @@ package com.logistiex.billing.service.dto;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
-import com.logistiex.billing.data.enums.ChargeType;
-import com.logistiex.billing.data.enums.PaymentType;
-import com.logistiex.billing.data.enums.ShipmentType;
+import com.logistiex.billing.data.enums.BillingStatus;
+import com.logistiex.billing.data.model.Money;
 import com.logistiex.common.service.dto.EntityDTO;
 import jakarta.validation.constraints.FutureOrPresent;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Min;  // Import for Min annotation
 import lombok.*;
 
 import java.time.Instant;
@@ -48,6 +46,13 @@ public class BillingPeriodDTO implements EntityDTO<String> {
     private String orgCode;
 
     @NotNull
-    private Long openingBalance;
+    private Money openingBalance;
+
+    private Money totalRecharge;
+    private Money totalCredit;
+    private Money totalDebit;
+    private Money closingBalance;
+    private BillingStatus status;
+
 
 }

@@ -9,19 +9,20 @@
 
 package com.logistiex.billing.service;
 
-import com.logistiex.billing.service.dto.CategoryDTO;
+import com.logistiex.billing.data.model.transaction;
 import com.logistiex.common.data.repository.BaseRepository;
 import com.logistiex.common.service.BaseCrudService;
 import com.logistiex.common.service.mapper.EntityMapper;
-import com.logistiex.billing.data.model.Category;
+import com.logistiex.billing.service.dto.TransactionDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 @Service
 @Slf4j
-public class CategoryService extends BaseCrudService<String, CategoryDTO, Category> {
+public class TransactionService extends BaseCrudService<String, TransactionDTO, transaction> {
 
-    public CategoryService(BaseRepository<Category, String> repository, EntityMapper<CategoryDTO, Category> mapper) {
+    public TransactionService(BaseRepository<transaction, String> repository, EntityMapper<TransactionDTO, transaction> mapper) {
         super(repository, mapper);
     }
+
 }

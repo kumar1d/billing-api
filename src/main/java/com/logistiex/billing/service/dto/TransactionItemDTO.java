@@ -11,7 +11,7 @@ package com.logistiex.billing.service.dto;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
-import com.logistiex.billing.data.enums.ChargeType;
+import com.logistiex.billing.data.enums.TransactionType;
 import com.logistiex.billing.data.enums.PaymentType;
 import com.logistiex.billing.data.enums.ShipmentType;
 import com.logistiex.common.service.dto.EntityDTO;
@@ -40,7 +40,7 @@ public class TransactionItemDTO implements EntityDTO<String> {
     private String orgCode;
 
     @NotNull
-    private ChargeType chargeType;   // *
+    private TransactionType transactionType;   // *
 
     @NotBlank
     private String courierAwbNo;

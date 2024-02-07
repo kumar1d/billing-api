@@ -1,7 +1,7 @@
 package com.logistiex.billing.data.model;
 
+import com.logistiex.billing.data.enums.BillingStatus;
 import com.logistiex.common.data.model.AuditableBaseEntity;
-import com.logistiex.common.generator.annotations.GenerateCrud;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.FutureOrPresent;
@@ -29,6 +29,15 @@ public class BillingPeriod extends AuditableBaseEntity<String> {
     private String orgCode;
 
     @NotNull
-    private Long openingBalance;
+    private Money openingBalance;
+
+
+    private Money totalRecharge;
+    private Money totalCredit;
+    private Money totalDebit;
+    private Money closingBalance;
+    private BillingStatus status;
+
+
 
 }

@@ -11,10 +11,7 @@ package com.logistiex.billing.service.dto;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
-import com.logistiex.billing.data.model.Category;
 import com.logistiex.common.service.dto.EntityDTO;
-import com.logistiex.common.service.validation.UniqueConstraint;
-import com.logistiex.common.service.validation.ValidReference;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
@@ -29,12 +26,12 @@ import lombok.*;
 @ToString
 @EqualsAndHashCode
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
-public class transactionDTO implements EntityDTO<String> {
+public class TransactionDTO implements EntityDTO<String> {
     private String id;
     private int version;
 
     @NotBlank
-  //   @ValidReference(domainClass = BusinessOrg.class,attribute = "orgCode")
+
     private String orgCode;
 
     @NotNull

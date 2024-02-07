@@ -6,7 +6,7 @@ import lombok.Getter;
 
 @AllArgsConstructor
 @Getter
-public enum ChargeType implements BaseEnum {
+public enum TransactionType implements BaseEnum {
 
     DEBIT_CARD("Debit Card"),
     CREDIT_CARD("Credit Card"),

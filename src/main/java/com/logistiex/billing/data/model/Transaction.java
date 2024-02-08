@@ -10,8 +10,7 @@ import lombok.*;
 @NoArgsConstructor
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
-//@GenerateCrud(basePackage = "com.logistiex.billing")
-public class transaction extends AuditableBaseEntity<String> {
+public class Transaction extends AuditableBaseEntity<String> {
 
    
 

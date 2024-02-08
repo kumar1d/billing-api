@@ -21,7 +21,7 @@ import jakarta.validation.constraints.Min;  // Import for Min annotation
 import lombok.*;
 
 /**
- * DTO object for Category
+ * DTO object for TransactionItemDTO
  */
 @Getter
 @Setter
@@ -30,7 +30,9 @@ import lombok.*;
 @EqualsAndHashCode
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class TransactionItemDTO implements EntityDTO<String> {
+
     private String id;
+
     private int version;
 
     @NotNull
@@ -40,7 +42,7 @@ public class TransactionItemDTO implements EntityDTO<String> {
     private String orgCode;
 
     @NotNull
-    private TransactionType transactionType;   // *
+    private TransactionType transactionType;
 
     @NotBlank
     private String courierAwbNo;
@@ -86,7 +88,7 @@ public class TransactionItemDTO implements EntityDTO<String> {
     private ShipmentType shipmentType;
 
     @NotNull
-    private PaymentType paymentType;    // *
+    private PaymentType paymentType;
 
     @NotNull
     @Min(value = 0, message = "Forward freight must be greater than or equal to 0")

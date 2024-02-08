@@ -1,6 +1,7 @@
 package com.logistiex.billing.data.model;
 
 import com.logistiex.billing.data.enums.BillingStatus;
+import com.logistiex.billing.data.vo.Money;
 import com.logistiex.common.data.model.AuditableBaseEntity;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -14,7 +15,6 @@ import java.time.Instant;
 @NoArgsConstructor
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
-//@GenerateCrud(basePackage = "com.logistiex.billing")
 public class BillingPeriod extends AuditableBaseEntity<String> {
 
     @NotNull
@@ -31,13 +31,13 @@ public class BillingPeriod extends AuditableBaseEntity<String> {
     @NotNull
     private Money openingBalance;
 
-
     private Money totalRecharge;
+
     private Money totalCredit;
+
     private Money totalDebit;
+
     private Money closingBalance;
+
     private BillingStatus status;
-
-
-
 }

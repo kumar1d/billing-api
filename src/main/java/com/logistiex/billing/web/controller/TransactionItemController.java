@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/transaction-items")
+@RequestMapping("/api/Transaction-items")
 public class TransactionItemController extends BaseCrudController<String, TransactionItemDTO, TransactionItem> {
 
     public TransactionItemController(BaseCrudService<String, TransactionItemDTO, TransactionItem> service, BaseRepository<TransactionItem, String> repository) {

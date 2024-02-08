@@ -27,27 +27,7 @@ import java.util.List;
 @RequestMapping("/api/billing-periods")
 public class BillingPeriodController extends BaseCrudController<String, BillingPeriodDTO, BillingPeriod> {
 
-    private final BillingPeriodService billingPeriodService;
-
     public BillingPeriodController(BillingPeriodService service, BaseRepository<BillingPeriod, String> repository) {
         super(service, repository);
-        this.billingPeriodService = service;
     }
-
-
-    // New API endpoint to get transactions within a timeframe for a specific organization
-    @GetMapping("/transactions")
-    public List<TransactionDTO> getTransactionsByOrgCodeAndTimeframe(
-            @RequestParam String orgCode,
-            @RequestParam long startDate, // Accept epoch format for startDate
-            @RequestParam long endDate    // Accept epoch format for endDate
-    ) {
-        Instant startInstant = Instant.ofEpochMilli(startDate);
-        Instant endInstant = Instant.ofEpochMilli(endDate);
-
-        return billingPeriodService.getTransactionsByOrgCodeAndTimeframe(orgCode, startInstant, endInstant);
-    }
-
-
-
 }

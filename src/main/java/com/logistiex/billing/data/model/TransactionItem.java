@@ -4,7 +4,6 @@ import com.logistiex.billing.data.enums.TransactionType;
 import com.logistiex.billing.data.enums.PaymentType;
 import com.logistiex.billing.data.enums.ShipmentType;
 import com.logistiex.common.data.model.AuditableBaseEntity;
-import com.logistiex.common.generator.annotations.GenerateCrud;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Min;
@@ -15,7 +14,6 @@ import lombok.*;
 @NoArgsConstructor
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
-@GenerateCrud(basePackage = "com.logistiex.billing")
 public class TransactionItem extends AuditableBaseEntity<String> {
 
     @NotNull

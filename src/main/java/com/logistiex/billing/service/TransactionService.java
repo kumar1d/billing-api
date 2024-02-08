@@ -9,7 +9,7 @@
 
 package com.logistiex.billing.service;
 
-import com.logistiex.billing.data.model.transaction;
+import com.logistiex.billing.data.model.Transaction;
 import com.logistiex.common.data.repository.BaseRepository;
 import com.logistiex.common.service.BaseCrudService;
 import com.logistiex.common.service.mapper.EntityMapper;
@@ -19,9 +19,9 @@ import org.springframework.stereotype.Service;
 
 @Service
 @Slf4j
-public class TransactionService extends BaseCrudService<String, TransactionDTO, transaction> {
+public class TransactionService extends BaseCrudService<String, TransactionDTO, Transaction> {
 
-    public TransactionService(BaseRepository<transaction, String> repository, EntityMapper<TransactionDTO, transaction> mapper) {
+    public TransactionService(BaseRepository<Transaction, String> repository, EntityMapper<TransactionDTO, Transaction> mapper) {
         super(repository, mapper);
     }
 

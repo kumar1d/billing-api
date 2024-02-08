@@ -8,7 +8,7 @@
  */
 package com.logistiex.billing.service.mapper;
 
-import com.logistiex.billing.data.model.transaction;
+import com.logistiex.billing.data.model.Transaction;
 import com.logistiex.common.service.mapper.EntityMapper;
 import com.logistiex.billing.service.dto.TransactionDTO;
 import org.mapstruct.Mapper;
@@ -16,7 +16,7 @@ import org.mapstruct.Mapper;
 import java.util.List;
 
 @Mapper(componentModel = "spring")
-public interface TransactionMapper extends EntityMapper<TransactionDTO, transaction> {
+public interface TransactionMapper extends EntityMapper<TransactionDTO, Transaction> {
 
-    List<TransactionDTO> toDtoList(List<transaction> transactions);
+    List<TransactionDTO> toDtoList(List<Transaction> transactions);
 }

@@ -16,10 +16,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
-/**
- * DTO object for Category
- *
- */
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -27,11 +24,12 @@ import lombok.*;
 @EqualsAndHashCode
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class TransactionDTO implements EntityDTO<String> {
+
     private String id;
+
     private int version;
 
     @NotBlank
-
     private String orgCode;
 
     @NotNull

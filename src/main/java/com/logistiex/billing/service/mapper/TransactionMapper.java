@@ -18,5 +18,5 @@ import java.util.List;
 @Mapper(componentModel = "spring")
 public interface TransactionMapper extends EntityMapper<TransactionDTO, Transaction> {
 
-    List<TransactionDTO> toDtoList(List<Transaction> transactions);
+
 }

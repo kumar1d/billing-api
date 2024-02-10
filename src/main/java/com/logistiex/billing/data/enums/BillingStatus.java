@@ -6,12 +6,11 @@ import lombok.Getter;
 
 @AllArgsConstructor
 @Getter
-public enum ChargeType implements BaseEnum {
 
-    DEBIT_CARD("Debit Card"),
-    CREDIT_CARD("Credit Card"),
-    UPI("UPI"),
-    NET_BANKING("Net Banking");
+public enum BillingStatus implements BaseEnum  {
+
+    COMPLETED("Completed"),
+    FAILED("Failed");
 
     private final String description;
 }

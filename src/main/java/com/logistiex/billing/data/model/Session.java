@@ -13,6 +13,7 @@ import java.time.Instant;
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
 public class Session extends AuditableBaseEntity<String> {
+
         //@NotBlank
         private String orderId;
 

@@ -20,10 +20,12 @@ import java.util.Base64;
 @Service
 @Slf4j
 public class SessionService extends BaseCrudService<String, SessionDTO, Session> {
+
     private final String JUSPAY_API_URL = "https://api.juspay.in/session";
     private final String JUSPAY_API_KEY = "AC109F08CD04F9F8A59725C3B860B0";
-    private final String MERCHANT_ID = "dtu"; // Update with your actual merchant ID
-    private final String CLIENT_ID = "dtudtu"; // Update with your actual client ID
+    private final String MERCHANT_ID = "dtu";
+    private final String CLIENT_ID = "dtudtu";
+
     @Autowired
     private ObjectMapper objectMapper;
 
@@ -34,7 +36,6 @@ public class SessionService extends BaseCrudService<String, SessionDTO, Session>
     @Override
     protected void afterCreate(SessionDTO dto, Session entity) {
         super.afterCreate(dto, entity);
-
         createSession(dto);
     }
 

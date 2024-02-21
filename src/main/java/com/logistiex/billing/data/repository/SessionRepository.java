@@ -9,7 +9,6 @@
 
 package com.logistiex.billing.data.repository;
 
-
 import com.logistiex.common.data.mongo.repository.BaseMongoRepository;
 import com.logistiex.billing.data.model.Session;
 import org.springframework.stereotype.Repository;

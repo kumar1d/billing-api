@@ -16,30 +16,30 @@ import java.util.Map;
 @EqualsAndHashCode
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class SessionDTO implements EntityDTO<String> {
-    private String id; // Assuming this is the DTO's identifier, adjust accordingly if it's different
+    private String id;
 
-    //  @NotBlank
+    // @NotBlank
     private String orderId;
 
-    //   @NotBlank
+    // @NotBlank
     private String amount;
 
-    //  @NotBlank
+    // @NotBlank
     private String customerId;
 
-    //  @NotBlank
+    // @NotBlank
     private String customerEmail;
 
-    //   @NotBlank
+    // @NotBlank
     private String customerPhone;
 
-    //  @NotBlank
+    // @NotBlank
     private String paymentPageClientId;
 
     // @NotBlank
     private String action;
 
-    //  @NotBlank
+    // @NotBlank
     private String returnUrl;
 
     // @NotBlank
@@ -51,7 +51,5 @@ public class SessionDTO implements EntityDTO<String> {
     // @NotBlank
     private String lastName;
 
-    private String Status;
-
-
+    private String status;
 }

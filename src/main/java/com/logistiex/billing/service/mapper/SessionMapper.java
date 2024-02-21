@@ -9,11 +9,11 @@
 package com.logistiex.billing.service.mapper;
 
 import com.logistiex.common.service.mapper.EntityMapper;
-import com.logistiex.billing.data.model.Category;
-import com.logistiex.billing.service.dto.CategoryDTO;
+import com.logistiex.billing.data.model.Session;
+import com.logistiex.billing.service.dto.SessionDTO;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")
-public interface CategoryMapper extends EntityMapper<CategoryDTO, Category> {
+public interface SessionMapper extends EntityMapper<SessionDTO, Session> {
 
 }

@@ -49,4 +49,9 @@ public class Session extends AuditableBaseEntity<String> {
 
         private Instant dateCreated;
         private Instant lastUpdated;
+
+
+        private String paymentLinks;
+        private String status;
+        private String juspayOrderId;
 }

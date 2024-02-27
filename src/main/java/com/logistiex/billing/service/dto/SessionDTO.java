@@ -51,5 +51,7 @@ public class SessionDTO implements EntityDTO<String> {
     // @NotBlank
     private String lastName;
 
-    private String status;
+//    private String paymentLinks;
+//    private String status;
+//    private String juspayOrderId;
 }

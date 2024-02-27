@@ -53,15 +53,17 @@ public class SessionService extends BaseCrudService<String, SessionDTO, Session>
         HttpEntity<SessionDTO> requestEntity = new HttpEntity<>(sessionDTO, headers);
 
         RestTemplate restTemplate = new RestTemplate();
-        ResponseEntity<SessionDTO> responseEntity = restTemplate.exchange(
+        ResponseEntity<Object> responseEntity = restTemplate.exchange(
                 JUSPAY_API_URL,
                 HttpMethod.POST,
                 requestEntity,
-                SessionDTO.class
+                Object.class
         );
 
         if (responseEntity.getStatusCode() == HttpStatus.CREATED) {
-            return responseEntity.getBody();
+            log.debug("body:{}",responseEntity.getBody());
+            return (SessionDTO) responseEntity.getBody();
+
         } else {
             log.error("Error: {}", responseEntity.getStatusCode());
             return null;

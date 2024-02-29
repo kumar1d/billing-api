@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.nio.charset.Charset;
 import java.util.Base64;
@@ -62,13 +63,27 @@ public class SessionService extends BaseCrudService<String, SessionDTO, Session>
                 JuspayResponseDTO.class
         );
 
-        if (responseEntity.getStatusCode() == HttpStatus.OK) {
-            log.debug("body:{}",responseEntity.getBody());
-            return responseEntity.getBody();
+        HttpStatusCode statusCode = responseEntity.getStatusCode();
 
+        if (statusCode == HttpStatus.OK) {
+            log.debug("body: {}", responseEntity.getBody());
+            return responseEntity.getBody();
+        } else if (statusCode == HttpStatus.BAD_REQUEST) {
+            log.error("Error: Invalid Input data. Details of keys missing: {}", responseEntity.getBody());
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid Input data. Details of keys missing: " + responseEntity.getBody());
+        } else if (statusCode == HttpStatus.UNAUTHORIZED) {
+            log.error("Error: Authentication Failed. {}", responseEntity.getBody());
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Authentication Failed. " + responseEntity.getBody());
+        } else if (statusCode == HttpStatus.NOT_FOUND) {
+            log.error("Error: Not Found. {}", responseEntity.getBody());
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Not Found. " + responseEntity.getBody());
+        } else if (statusCode == HttpStatus.INTERNAL_SERVER_ERROR) {
+            log.error("Error: Unexpected Error. {}", responseEntity.getBody());
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Unexpected Error. " + responseEntity.getBody());
         } else {
-            log.error("Error: {}", responseEntity.getStatusCode());
-            return null;
+            log.error("Error: {}. Response Body: {}", statusCode, responseEntity.getBody());
+            throw new ResponseStatusException(statusCode, "Error occurred. " + responseEntity.getBody());
         }
     }
+
 }

@@ -3,6 +3,7 @@ package com.logistiex.billing.service;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
+import com.logistiex.billing.service.dto.JuspayResponseDTO;
 import com.logistiex.common.data.repository.BaseRepository;
 import com.logistiex.common.service.BaseCrudService;
 import com.logistiex.common.service.mapper.EntityMapper;
@@ -36,10 +37,11 @@ public class SessionService extends BaseCrudService<String, SessionDTO, Session>
     @Override
     protected void afterCreate(SessionDTO dto, Session entity) {
         super.afterCreate(dto, entity);
-        createSession(dto);
+        final JuspayResponseDTO juspayResponseDTO = createSession(dto);
+        log.debug("juspay response: {} ", juspayResponseDTO);
     }
 
-    public SessionDTO createSession(SessionDTO sessionDTO) {
+    public JuspayResponseDTO createSession(SessionDTO sessionDTO) {
         HttpHeaders headers = new HttpHeaders();
         headers.set("x-merchantid", MERCHANT_ID);
         headers.set("Content-Type", "application/json");
@@ -53,16 +55,16 @@ public class SessionService extends BaseCrudService<String, SessionDTO, Session>
         HttpEntity<SessionDTO> requestEntity = new HttpEntity<>(sessionDTO, headers);
 
         RestTemplate restTemplate = new RestTemplate();
-        ResponseEntity<Object> responseEntity = restTemplate.exchange(
+        ResponseEntity<JuspayResponseDTO> responseEntity = restTemplate.exchange(
                 JUSPAY_API_URL,
                 HttpMethod.POST,
                 requestEntity,
-                Object.class
+                JuspayResponseDTO.class
         );
 
-        if (responseEntity.getStatusCode() == HttpStatus.CREATED) {
+        if (responseEntity.getStatusCode() == HttpStatus.OK) {
             log.debug("body:{}",responseEntity.getBody());
-            return (SessionDTO) responseEntity.getBody();
+            return responseEntity.getBody();
 
         } else {
             log.error("Error: {}", responseEntity.getStatusCode());

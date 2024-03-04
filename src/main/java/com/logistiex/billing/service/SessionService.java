@@ -36,11 +36,22 @@ public class SessionService extends BaseCrudService<String, SessionDTO, Session>
     }
 
     @Override
-    protected void afterCreate(SessionDTO dto, Session entity) {
-        super.afterCreate(dto, entity);
+    protected SessionDTO beforeMapping(SessionDTO dto, Method method) {
         final JuspayResponseDTO juspayResponseDTO = createSession(dto);
-        log.debug("juspay response: {} ", juspayResponseDTO);
+        if(juspayResponseDTO != null){
+            log.debug("juspay response: {} ", juspayResponseDTO);
+            dto.setJuspayOrderId(juspayResponseDTO.getId());
+            dto.setPaymentLinks(juspayResponseDTO.getPaymentLinks().getWeb());
+            dto.setStatus(juspayResponseDTO.getStatus());
+        }
+        return super.beforeMapping(dto, method);
     }
+//    @Override
+//    protected void afterCreate(SessionDTO dto, Session entity) {
+//        super.afterCreate(dto, entity);
+//        final JuspayResponseDTO juspayResponseDTO = createSession(dto);
+//        log.debug("juspay response: {} ", juspayResponseDTO);
+//    }
 
     public JuspayResponseDTO createSession(SessionDTO sessionDTO) {
         HttpHeaders headers = new HttpHeaders();

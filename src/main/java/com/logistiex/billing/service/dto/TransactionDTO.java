@@ -9,37 +9,39 @@
 
 package com.logistiex.billing.service.dto;
 
-import com.logistiex.common.service.dto.EntityDTO;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
-import lombok.*;
-import com.logistiex.billing.data.model.Category;
+import com.logistiex.common.service.dto.EntityDTO;
 import jakarta.validation.constraints.NotBlank;
-import com.logistiex.common.service.validation.UniqueConstraint;
+import jakarta.validation.constraints.NotNull;
+import lombok.*;
 
-/**
- * DTO object for Category
- *
- */
+
 @Getter
 @Setter
 @NoArgsConstructor
 @ToString
 @EqualsAndHashCode
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
-public class CategoryDTO implements EntityDTO<String> {
+public class TransactionDTO implements EntityDTO<String> {
+
     private String id;
+
     private int version;
 
-    /**
-    * Category Code
-    */
     @NotBlank
-    @UniqueConstraint(domainClass=Category.class, attribute="categoryCode")
-    private String categoryCode;
-    /**
-    * Category Name
-    */
+    private String orgCode;
+
+    @NotNull
+    private long transactionTime;
+
     @NotBlank
-    private String categoryName;
+    private String transactionDescription;
+
+    @NotNull
+    private long transactionReference;
+
+    @NotNull
+    private long transactionAmount;
+
 }

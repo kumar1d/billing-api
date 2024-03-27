@@ -11,13 +11,13 @@ package com.logistiex.billing.data.repository;
 
 
 import com.logistiex.common.data.mongo.repository.BaseMongoRepository;
-import com.logistiex.billing.data.model.Category;
+import com.logistiex.billing.data.model.BillingPeriod;
 import org.springframework.stereotype.Repository;
 
 /**
- * Spring Data MongoDB repository for the Category entity.
+ * Spring Data MongoDB repository for the BillingPeriod entity.
  */
 @SuppressWarnings("unused")
 @Repository
-public interface CategoryRepository extends BaseMongoRepository<Category, String> {
+public interface BillingPeriodRepository extends BaseMongoRepository<BillingPeriod, String> {
 }

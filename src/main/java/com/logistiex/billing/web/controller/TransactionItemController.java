@@ -9,19 +9,19 @@
 
 package com.logistiex.billing.web.controller;
 
-import com.logistiex.billing.data.model.Category;
-import com.logistiex.billing.service.dto.CategoryDTO;
 import com.logistiex.common.data.repository.BaseRepository;
 import com.logistiex.common.service.BaseCrudService;
 import com.logistiex.common.web.mvc.controller.BaseCrudController;
+import com.logistiex.billing.data.model.TransactionItem;
+import com.logistiex.billing.service.dto.TransactionItemDTO;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/categories")
-public class CategoryController extends BaseCrudController<String, CategoryDTO, Category> {
+@RequestMapping("/api/transaction-items")
+public class TransactionItemController extends BaseCrudController<String, TransactionItemDTO, TransactionItem> {
 
-    public CategoryController(BaseCrudService<String, CategoryDTO, Category> service, BaseRepository<Category, String> repository) {
+    public TransactionItemController(BaseCrudService<String, TransactionItemDTO, TransactionItem> service, BaseRepository<TransactionItem, String> repository) {
         super(service, repository);
     }
 }

@@ -46,6 +46,11 @@
             <artifactId>logistiex-common-generator</artifactId>
             <version>${logistiex-common-version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.logistiex</groupId>
+            <artifactId>logistiex-common-model</artifactId>
+            <version>${logistiex-common-version}</version>
+        </dependency>
     </dependencies>
 
     <build>
